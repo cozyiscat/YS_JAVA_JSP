@@ -30,6 +30,21 @@ public class JDBConnect {
 			e.printStackTrace();
 		}
 	}
+	
+	//2번생성자
+		public JDBConnect(String driver, String url, String id, String pwd) {
+			try {
+				//JDBC 드라이버로드
+				Class.forName(driver);
+				
+				//DB 연결
+				con = DriverManager.getConnection(url, id, pwd);			
+				System.out.println("DB 연결 성공(파라미터생성자)");				
+			} catch(Exception e) {			
+				e.printStackTrace();			
+			}
+		}
+
 	//연결 해제(자원 반납)
 	public void close() {
 		try {
